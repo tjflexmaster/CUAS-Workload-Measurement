@@ -1,0 +1,238 @@
+%% bare_conf.tex
+%% V1.2
+%% 2002/11/18
+%% by Michael Shell
+%% mshell@ece.gatech.edu
+%%
+%% NOTE: This text file uses MS Windows line feed conventions. When (human)
+%% reading this file on other platforms, you may have to use a text
+%% editor that can handle lines terminated by the MS Windows line feed
+%% characters (0x0D 0x0A).
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.6b or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.ieee.org
+%% and/or
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
+%%
+%% This code is offered as-is - no warranty - user assumes all risk.
+%% Free to use, distribute and modify.
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% Testflow can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/testflow
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print. Authors are encouraged to use U.S. letter paper when
+% submitting to IEEE. Use the testflow package mentioned above to verify
+% correct handling of both paper sizes by the author's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+% This paper can be formatted using the peerreviewca
+% (instead of conference) mode.
+% If the IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it:
+% \documentclass[conference]{IEEEtran}
+% To use A4 paper, add a4paper option as in
+% \documentclass[conference,a4paper]{IEEEtran}
+
+
+% setup page to suit conference specification using fancyhdr
+\documentclass[conference,letterpaper]{IEEEtran}
+\usepackage{fancyhdr}
+\setlength{\paperwidth}{215.9mm}
+\setlength{\hoffset}{-9.7mm}
+\setlength{\oddsidemargin}{0mm}
+\setlength{\textwidth}{184.3mm}
+\setlength{\columnsep}{6.3mm}
+\setlength{\marginparsep}{0mm}
+\setlength{\marginparwidth}{0mm}
+
+\setlength{\paperheight}{279.4mm}
+\setlength{\voffset}{-7.4mm}
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{0mm}
+\setlength{\headsep}{0mm}
+\setlength{\topskip}{0mm}
+\setlength{\textheight}{235.2mm}
+\setlength{\footskip}{12.4mm}
+
+\setlength{\parindent}{1pc}
+
+
+% some very useful LaTeX packages include:
+
+\usepackage{graphicx}  % Written by David Carlisle and Sebastian Rahtz
+                        % Required if you want graphics, photos, etc.
+                        % graphicx.sty is already installed on most LaTeX
+                        % systems. The latest version and documentation can
+                        % be obtained at:
+                        % http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+                        % Another good source of documentation is "Using
+                        % Imported Graphics in LaTeX2e" by Keith Reckdahl
+                        % which can be found as esplatex.ps and epslatex.pdf
+                        % at: http://www.ctan.org/tex-archive/info/
+                        % NOTE: for dual use with latex and pdflatex, instead load graphicx like:
+                        %\ifx\pdfoutput\undefined
+                        %\usepackage{graphicx}
+                        %\else
+                        %\usepackage[pdftex]{graphicx}
+                        %\fi
+                        %
+                        % However, be warned that pdflatex will require graphics to be in PDF
+                        % (not EPS) format and will preclude the use of PostScript based LaTeX
+                        % packages such as psfrag.sty and pstricks.sty. IEEE conferences typically
+                        % allow PDF graphics (and hence pdfLaTeX). However, IEEE journals do not
+                        % (yet) allow image formats other than EPS or TIFF. Therefore, authors of
+                        % journal papers should use traditional LaTeX with EPS graphics.
+                        %
+                        % The path(s) to the graphics files can also be declared: e.g.,
+                        % \graphicspath{{../eps/}{../ps/}}
+                        % if the graphics files are not located in the same directory as the
+                        % .tex file. This can be done in each branch of the conditional above
+                        % (after graphicx is loaded) to handle the EPS and PDF cases separately.
+                        % In this way, full path information will not have to be specified in
+                        % each \includegraphics command.
+                        %
+                        % Note that, when switching from latex to pdflatex and vice-versa, the new
+                        % compiler will have to be run twice to clear some warnings.
+
+\usepackage{amsmath}   % From the American Mathematical Society
+                        % A popular package that provides many helpful commands
+                        % for dealing with mathematics. Note that the AMSmath
+                        % package sets \interdisplaylinepenalty to 10000 thus
+                        % preventing page breaks from occurring within multiline
+                        % equations. Use:
+                        %\interdisplaylinepenalty=2500
+                        % after loading amsmath to restore such page breaks
+                        % as IEEEtran.cls normally does. amsmath.sty is already
+                        % installed on most LaTeX systems. The latest version
+                        % and documentation can be obtained at:
+                        % http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+% Pdflatex produces superior hyperref results and is the recommended
+% compiler for such use.
+
+\usepackage{fancyhdr}
+\usepackage{citesort}
+
+\usepackage{comment}
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor IEEEtran}
+
+\begin{document}
+% paper title
+\title{Modeling UASs for Role Fusion and Human Machine Interface Optimization}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{
+\authorblockN{TJ Gledhill, Eric Mercer and Michael A. Goodrich}
+\IEEEauthorblockA{Computer Science Department \\ Brigham Young University \\ Provo, UT}
+}
+
+\IEEEoverridecommandlockouts
+\IEEEpubid{\makebox[\columnwidth]{978-1-4799-0652-9/13/\$31.00~\copyright2013
+IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
+
+
+
+% make the title area
+\maketitle
+
+% \thispagestyle{plain}
+
+
+% insert page header and footer here for IEEE PDF Compliant
+\fancypagestyle{plain}{
+\fancyhf{}	% clear all header and footer fields
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+
+\pagestyle{fancy}{
+\fancyhf{}
+\fancyfoot[R]{}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\setlength{\topmargin}{1pt}
+\setlength{\topskip}{1pt}
+\setlength{\abovedisplayskip}{1pt}
+\setlength{\belowdisplayskip}{1pt}
+
+
+
+\begin{abstract}
+Empty
+
+
+%can provide new insight into human machine interactions through role.   UAS-enabled Wilderness Search and Rescue (WiSAR) %as a collection of roles running in parallel.   as well as an encoding of this model in Java. This yields a precise formalization of %the individual WiSAR roles and allows behavior of the roles to be model-checked by
+%Java Pathfinder to establish bounds and trends in the models. Results from the modeling activity and model-checking in Java %Pathfinder indicate (a)~that it is necessary to clearly identify an appropriate level of modeling abstraction and (b)~that building %and evaluating the model provide insight into the best practices for real and UAS-enabled WiSAR teams.
+\end{abstract}
+\begin{IEEEkeywords}
+model checking, human machine interfaces, Java PathFinder, Unmanned Aerial
+Systems, Wilderness Search and Rescue, Workload measurement
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+%
+% for peerreview papers, inserts a page break and creates the second title.
+% Will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+\input{introduction.tex}
+\input{framework.tex}
+\input{workload_categories.tex}
+\input{metric_classes.tex}
+\input{predicting_workload.tex}
+\input{results.tex}
+\input{related_work.tex}
+\input{conclusion.tex}
+
+
+% use section* for acknowledgement
+% use section* for acknowledgement
+\section*{Acknowledgment}
+% optional entry into table of contents (if used)
+% \addcontentsline{toc}{section}{Acknowledgment}
+The authors would like to thank Neha Rungta of NASA Ames Intelligent
+Systems Division for her help with JPF and Brahms. The authors would also like to thank the NSF IUCRC Center for Unmanned Aerial Systems, and the participating industries and labs, for funding the work. Further thanks go to Jared Moore and Robert Ivie for their help coding the model and editing this paper.
+
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% standard IEEE bibliography style from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/bibtex
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{references}
+
+
+% that's all folks
+\end{document} 
