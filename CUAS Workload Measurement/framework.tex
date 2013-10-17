@@ -10,11 +10,13 @@ In previous work we represented WiSAR as a collection of directed role graphs
 (DiRGs)\cite{gledhill2013modelinguas}.  See figure~\ref{fig:ditg}.  As is common
 when modeling human-automation interaction we have decided to model the DiRGs usings Mealy
 state machines~\cite{bolton2013litreview}.  The DiTG formalizes this collection
-by defining the communication mediums which unite the said DiRGs.  By using
-multiple resource theory \cite{wickens2002multiple} as a guide we can explicitly
+by defining the communication mediums which unite the said DiRGs.  Using
+multiple resource theory\cite{wickens2002multiple} as a guide we can explicitly
 define the channels over which this communication occurs.  See
 figure~\ref{fig:ditg_detail}.  The Actor state transitions then use these
-channels to broadcast and receive inter-Actor communication.  We hope to gain
+channels to broadcast and receive inter-Actor communication.  
+
+We hope to gain
 insight into decreasing the system workload, and possibly combining roles, by
 establishing metrics associated with the task model and model simulation.  These
 metrics can then be used to determine if changes to the model represent a
@@ -48,30 +50,44 @@ Formally, the models are the following mathematical structures:
  \end{equation}
 
  \begin{equation}
- 	Actor = (S, s_0, s_i, \Omega_A, \Sigma_A \subset \Phi, \Lambda_A \subset \Phi)
+ 	Actor = (S, s_0, s_{current}, \Omega_A, \Sigma_A \subset \Phi, \Lambda_A
+ 	\subset \Phi)
  \label{eq:actor}
  \end{equation}
 
  \begin{equation}
-	State = (T_E, T_D)
+	State = (T_{enabled}, T_{disabled})
  \label{eq:state}
 \end{equation}
 
 \begin{equation}
 \begin{split}
 	Transition = (\Omega_{input} \subset \Omega_A, \Sigma_{input} \subset \Sigma_A,\\
-	\Omega_{input}_{values}, \Sigma_{input}_{values} \\
+	\Omega_{value}^{input}, \Sigma_{value}^{input} \\
 	\Omega_{output} \subset \Omega_A, \Lambda_{output} \subset \Lambda_A, \\
-	\Omega_{output}_{values}, \Lambda_{output}_{values})
+	\Omega_{value}^{output}, \Lambda_{value}^{output})
  \label{eq:transition}
  \end{split}
 \end{equation}
 
+\begin{equation}
+\begin{split}
+Channel (\phi) = (type \in (visual, audio), \\
+value \in (null, *), 
+ a_i^{source}, a_j^{target}) : i \neq j
+ \label{eq:channel}
+ \end{split}
+\end{equation}
 
-where $S$ is a set of states, $s_0$ the start state,  $\Sigma_{A}$ the set of all Actor inputs, $\Sigma_{S}$ the set of all Simulator inputs, $\Lambda_{A}$ the set of all Actor outputs, and $T$ a transition matrix which specifies the outputs for any state transition.  $T$ may have multiple inputs and multiple outputs.
+\begin{equation}
+Declarative Memory(\omega) = value \in (null, *)
+\end{equation}
 
-At this point our conceptual model is implementation agnostic.  Indeed, the abstraction allows us to group Actors, break Actors into sub-Actors, and use Actors to validate specific behaviors.  The model also allows for complex transitions between Actor states and the ability to enter normally unreachable state spaces using Events.  The model is also easily adapted to code which can be verified using model checking tools such as Java Pathfinder (JPF) which we will show in the following sections.
 
+where $A$ is a set of actors, $S$ a set of
+states, $T$ a set of transitions, $\Phi$ a set of channels, $\Omega$ a set of
+declarative memory, $\Sigma$ a set of input channels, and $\Lambda$ a set of
+output channels.
 
 \subsection{Framework Components}
 \subsubsection{Actors}
