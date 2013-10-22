@@ -139,14 +139,14 @@
 
 \begin{document}
 % paper title
-\title{Modeling UASs for Role Fusion and Human Machine Interface Optimization}
+\title{Modeling Human Workload in Unmanned Aerial Systems:}
 
 
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
 \author{
-\authorblockN{TJ Gledhill, Jared Moore, Eric Mercer and Michael A. Goodrich}
+\authorblockN{J. J. Moore, TJ Gledhill, E. Mercer and M. A. Goodrich}
 \IEEEauthorblockA{Computer Science Department \\ Brigham Young University \\ Provo, UT}
 }
 
@@ -187,15 +187,15 @@ IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
 
 
 \begin{abstract}
-Empty
+Ironically, unmanned aerial systems (UASs) often require multiple human operators fulfilling diverse roles including mission  manager, video analyst, unmanned aerial vehicle operator, etc.  Although some dispute the utility of the goal [Murphy], it is a long-standing goal of many UAS designers to decrease the number of humans involved in a mission.  This paper presents work toward understanding how workload is distributed among humans and across time, and therefore presents the groundwork for understanding whether it is possible to decrease the number of humans involved and, if it is possible, for what types of missions.  The approach is to formally model the actors in a UAS as finite state machines, and then distill a graphical model of the interactions amount the different team actors.  This graphical model is augmented with a set of workload metrics, derived from a review of the relevant literature, and encoded in Java.  The Java PathFinder model-checker is then used to create temporal workload profiles for a pair of scenarios, and the results are checked for consistency with known features of the workload profiles.
 
 
 %can provide new insight into human machine interactions through role.   UAS-enabled Wilderness Search and Rescue (WiSAR) %as a collection of roles running in parallel.   as well as an encoding of this model in Java. This yields a precise formalization of %the individual WiSAR roles and allows behavior of the roles to be model-checked by
 %Java Pathfinder to establish bounds and trends in the models. Results from the modeling activity and model-checking in Java %Pathfinder indicate (a)~that it is necessary to clearly identify an appropriate level of modeling abstraction and (b)~that building %and evaluating the model provide insight into the best practices for real and UAS-enabled WiSAR teams.
 \end{abstract}
 \begin{IEEEkeywords}
-model checking, human machine interfaces, Java PathFinder, Unmanned Aerial
-Systems, Wilderness Search and Rescue, Workload measurement
+model-checking, human machine interfaces, Java PathFinder, unmanned aerial
+systems, wilderness search and rescue, workload measurement
 \end{IEEEkeywords}
 
 
@@ -208,7 +208,7 @@ Systems, Wilderness Search and Rescue, Workload measurement
 \IEEEpeerreviewmaketitle
 
 \input{introduction.tex}
-\input{dirg.tex}
+\section{Actor Models} {\sc Copy from SMC paper, referencing that paper and telling the reader we copied it from there.  Need to explain what the math means, identifying that we are using FSMs and talking about how we denote the different elements of the FSM and what they mean in the Java model.}
 \input{framework.tex}
 \input{workload_categories.tex}
 \input{metric_classes.tex}
