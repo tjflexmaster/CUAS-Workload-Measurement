@@ -187,7 +187,7 @@ IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
 
 
 \begin{abstract}
-Ironically, unmanned aerial systems (UASs) often require multiple human operators fulfilling diverse roles including mission  manager, video analyst, unmanned aerial vehicle operator, etc.  Although some dispute the utility of the goal [Murphy], it is a long-standing goal of many UAS designers to decrease the number of humans involved in a mission.  This paper presents work toward understanding how workload is distributed among humans and across time, and therefore presents the groundwork for understanding whether it is possible to decrease the number of humans involved and, if it is possible, for what types of missions.  The approach is to formally model the actors in a UAS as finite state machines, and then distill a graphical model of the interactions amount the different team actors.  This graphical model is augmented with a set of workload metrics, derived from a review of the relevant literature, and encoded in Java.  The Java PathFinder model-checker is then used to create temporal workload profiles for a pair of scenarios, and the results are checked for consistency with known features of the workload profiles.
+Ironically, unmanned aerial systems (UASs) often require multiple human operators fulfilling diverse roles including mission  manager, video analyst, unmanned aerial vehicle operator, etc.  Although some persuasively dispute the utility of the goal~\cite{MurphyBurke2010}, it is a long-standing goal of many UAS designers to decrease the number of humans involved in a mission.  This paper presents work toward understanding how workload is distributed among humans and across time, and therefore presents the groundwork for understanding whether it is possible to decrease the number of humans involved and, if it is possible, for what types of missions.  The approach is to formally model the actors in a UAS as finite state machines, and then distill a graphical model of the interactions amount the different team actors.  This graphical model is augmented with a set of workload metrics, derived from a review of the relevant literature, and encoded in Java.  The Java PathFinder model-checker is then used to create temporal workload profiles for a pair of scenarios, and the results are checked for consistency with known features of the workload profiles.
 
 
 %can provide new insight into human machine interactions through role.   UAS-enabled Wilderness Search and Rescue (WiSAR) %as a collection of roles running in parallel.   as well as an encoding of this model in Java. This yields a precise formalization of %the individual WiSAR roles and allows behavior of the roles to be model-checked by
@@ -208,7 +208,7 @@ systems, wilderness search and rescue, workload measurement
 \IEEEpeerreviewmaketitle
 
 \input{introduction.tex}
-\section{Actor Models} {\sc Copy from SMC paper, referencing that paper and telling the reader we copied it from there.  Need to explain what the math means, identifying that we are using FSMs and talking about how we denote the different elements of the FSM and what they mean in the Java model.}
+\input{actor_model.tex}
 \input{framework.tex}
 \input{workload_categories.tex}
 \input{metric_classes.tex}
@@ -232,7 +232,7 @@ Systems Division for her help with JPF and Brahms. The authors would also like t
 % http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/bibtex
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-\bibliography{references}
+\bibliography{references,standard3}
 
 
 % that's all folks

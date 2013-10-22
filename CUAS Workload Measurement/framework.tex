@@ -6,12 +6,8 @@ the activity within our model to human workload.  We call this framework the
 directed team graph (DiTG).
 
 \subsection{Conceptual Model}
-In previous work we represented WiSAR as a collection of directed role graphs
-(DiRGs)\cite{gledhill2013modelinguas}.  See figure~\ref{fig:ditg}.  As is common
-when modeling human-automation interaction we have decided to model the DiRGs
-using Mealy state machines which we refer to as
-Actors~\cite{bolton2013litreview}.
-The DiTG formalizes this collection by defining the communication mediums which
+As described in the previous section, we modeled a WiSAR team as a collection of directed role graphs
+(DiRGs).  This collection, illustrated in Figure~\ref{fig:ditg}, is essentially a graph, and we can augment the edges of this graph with information that allows us to track workload.  We call this graph a {\em Directed Team Graph} (DiTG), and and note that this graph formalizes this collection by defining the communication mediums which
 unite the said Actors.  Using multiple resource theory\cite{wickens2002multiple}
 as a guide we can explicitly define the channels over which this communication occurs.  See
 figure~\ref{fig:ditg_detail}.  The Actor state transitions then use these
@@ -50,26 +46,26 @@ Formally, the framework is the following mathematical structures:
  	DiTG = (A, \Phi, \forall a_i \in A~ \exists \Phi_i \subset \Phi)
  \end{equation}
 
- \begin{equation}
- 	Actor = (S, s_0, s_{current}, \Omega_A, \Sigma_A \subset \Phi, \Lambda_A
- 	\subset \Phi)
- \label{eq:actor}
- \end{equation}
-
- \begin{equation}
-	State = (T_{enabled}, T_{disabled}) : T_{enabled} \cap T_{disabled} = \emptyset
- \label{eq:state}
-\end{equation}
-
-\begin{equation}
-\begin{split}
-	Transition = (\Omega_{input} \subset \Omega_A, \Sigma_{input} \subset \Sigma_A,\\
-	\Omega_{value}^{input}, \Sigma_{value}^{input} \\
-	\Omega_{output} \subset \Omega_A, \Lambda_{output} \subset \Lambda_A, \\
-	\Omega_{value}^{output}, \Lambda_{value}^{output}, duration)
- \label{eq:transition}
- \end{split}
-\end{equation}
+% \begin{equation}
+% 	Actor = (S, s_0, s_{current}, \Omega_A, \Sigma_A \subset \Phi, \Lambda_A
+% 	\subset \Phi)
+ %\label{eq:actor}
+ %\end{equation}
+%
+% \begin{equation}
+%	State = (T_{enabled}, T_{disabled}) : T_{enabled} \cap T_{disabled} = \emptyset
+% \label{eq:state}
+%\end{equation}
+%
+%\begin{equation}
+%\begin{split}
+%	Transition = (\Omega_{input} \subset \Omega_A, \Sigma_{input} \subset \Sigma_A,\\
+%	\Omega_{value}^{input}, \Sigma_{value}^{input} \\
+%	\Omega_{output} \subset \Omega_A, \Lambda_{output} \subset \Lambda_A, \\
+%	\Omega_{value}^{output}, \Lambda_{value}^{output}, duration)
+% \label{eq:transition}
+% \end{split}
+%\end{equation}
 
 \begin{equation}
 \begin{split}
