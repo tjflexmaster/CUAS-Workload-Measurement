@@ -3,8 +3,6 @@
 In previous work~\cite{gledhill2013modelinguas} we represented each member of the WiSAR system as a unique directed role graph(DiRG); see Figure 1. As is common
 when modeling human-automation interaction we modeled the DiRGs using Mealy state machines which we refer to as Actors~\cite{bolton2013litreview}. However the model did not lend itself well to workload analysis. Converting the actors to Moore machines allowed for greater precision in model validation and workload analysis. While Mealy machines signals are based both on the inputs into a state and the state itself Moore machines restrict changes to the input to state changes. This confines the non-determinism of the model to state changes. By minimizing points of non-determinism we simplify the validation process for the model.
 
-{\sc State why Moore machines are better than Mealy, reminding the reader about the differences between the two.}
-
 \begin{figure}[h]
 \center
 \setlength{\abovecaptionskip}{1mm}
@@ -39,4 +37,4 @@ Formally, the actors are modeled as Moore machines as follows:
  \end{split}
 \end{equation}
 
-{\sc State in a few sentences what these things mean and how we use them.  Take items 1-3 from the Framework Components section in section III.B.}
+A naming of the parts of these equations in English may help describe their significance. Here an actor is composed of a set of states, a current state, an initial state, a set of intra actor input, a set of inter actor input, and a set of outputs. A state is composed of enabled and disabled transitions, where no transition can be both enable and disabled and all transitions must be enabled or disabled. A transition is composed of assigned inter actor inputs and outputs, assigned intra actor inputs and outputs, an a duration. More explanation of how we use actors, states, and transitions is given in section III.B.
