@@ -2,11 +2,10 @@
 
 This work is an extension of previous work which focused on modeling human
 machine systems, specifically WiSAR.  This work extends this model to
-incorporate the measurement of workload. \cite{gledhill2013modelinguas}
+incorporate the measurement of workload~\cite{gledhill2013modelinguas}.
 
-Multiple resource theory plays a key role in how we are measuring workload.
-\cite{wickens2002multiple} The multiple resource model defines four categorical dimensions that
-account for variations in human task performance.  A task can be represented as a vector of these dimensions.  Tasks interfere when they share resource dimensions.  Using these vectors Wickens defined a basic workload measure consisting of the task difficulty (0,1,2) and the number of shared dimensions.  Using this metric it is possible to predict task interference by looking at tasks which use the same resource dimensions.  Our model differs in that we do not explicitly define tasks, instead we use Actor state transitions which may imply any number of concurrent tasks.  The transition then informs us of which resources are being used and for how long.  To simplify our implementation we are currently only looking at two dimensions, Stages and Modalities.  We can use the same metric to predict if an Actors transition will cause task interference.
+Multiple resource theory plays a key role in how we are measuring workload~\cite{wickens2002multiple}. The multiple resource model defines four categorical dimensions that
+account for variations in human task performance.  A task can be represented as a vector of these dimensions.  Tasks interfere when they share resource dimensions.  Using these vectors, Wickens defined a basic workload measure consisting of the task difficulty (0,1,2) and the number of shared dimensions.  Using this metric it is possible to predict task interference by looking at tasks which use the same resource dimensions.  Our model differs in that we do not explicitly define tasks, instead we use Actor state transitions which may imply any number of concurrent tasks.  The transition then informs us of which resources are being used and for how long.  To simplify our implementation we are currently only looking at two dimensions, Stages and Modalities.  We can use the same metric to predict if an Actors transition will cause task interference.
 
 Threaded cognition theory states that humans can perform
 multiple concurrent tasks that do not require executive processes.  By making a
@@ -16,16 +15,15 @@ threaded cognition is able to model task learning.  Our model differs from
 Threaded cognition theory in a few key areas, our model does not allow learning
 which decreases workload through skill mastery.  Also, it does not distinguish
 between perceptual and motor resources, instead perception and action both use
-the same resource.  In almost all other aspects our model behaves in a similar fashion. \cite{salvucci2008threaded}
+the same resource.  In almost all other aspects our model behaves in a similar fashion~\cite{salvucci2008threaded}.
 
 Other similar work has attempted to predict the number of UAVs an operator can
-control, otherwise known as “fan-out”. \cite{cummings2007predicting}  This work used queuing theory
+control, otherwise known as {\em fan-out}~\cite{cummings2007predicting,OlsenWood2004,CrandallEtAl2005}.  This work used queuing theory
 to model how a human responds in a time sensitive multi-task environment.  Queuing theory is helpful in determining the temporal effects of task performance by measuring the difference between when a task was received and when it was executed.  At the highest level our model uses Queuing theory, our Actors can only perform a single transition at a time.  We differ, however, in that a transition may represent multiple concurrent tasks.
 
 Act-R is a cognitive architecture which attempts to model human cognition and
-has been successful in human-computer interaction applications. \cite{anderson2004integrated}  The
+has been successful in human-computer interaction applications~\cite{anderson2004integrated,lebiere2013cognitive}.  The
 framework for this architecture consists of modules, buffers, and a pattern
 matcher which in many ways are very similar to our own framework.  The major
 difference being the cognitive detail available with ACT-R such as memory access
-time, task learning, and motor vs perceptual resource differences.
-\cite{moray1982subjective,newell1994unified}
+time, task learning, and motor vs perceptual resource differences~\cite{moray1982subjective,newell1994unified}.
