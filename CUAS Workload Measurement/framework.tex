@@ -117,3 +117,21 @@ explicitly defining tasks.
 %\noindent The language is compiled to a Java program suitable to run standalone
 %as a simulation or analyzed by the JPF model checker to create
 %workload profiles.
+=======
+\subsection{Model Creation}
+To simplify the modeling process and ensure rigorous model creation we
+developed a transition language, similar to a Kripke structure, which allows
+models to be expressed as a list of Actor transitions.  A parser then
+automatically generates the classes required to run the model simulation.
+The transition language uses the following structure.
+\begin{equation}
+\begin{split}
+(s_{current}, [\phi_{input} = value,\ldots], [\omega_{input} = value,\ldots],\\
+duration) \times \\
+(s_{next}, [\phi_{output} =
+value,\ldots], [\omega_{output} = value,\ldots])
+\end{split}
+\end{equation}
+\noindent The language is compiled to a Java program suitable to run standalone
+as a simulation or analyzed by the JPF model checker to create
+workload profiles.
