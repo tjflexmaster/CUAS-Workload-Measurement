@@ -1,6 +1,6 @@
 \section{Actor Model} 
 
-In previous work~\cite{gledhill2013modelinguas}, we represented each {\em actor}, both human and autonomous component, of the WiSAR search team as a Mealy state machines as has been done in other models~\cite{bolton2013litreview}. However the Mealy state machine model does not lend itself well to workload analysis so this paper uses Moore machines\footnote{The outputs or signals from Mealy machines are based both on the inputs into the machine and the state itself,  and Moore machines restrict changes to the input to state changes.} Moore machines confine model non-determinism to state changes, which minimizes the possible sources of non-determinism and simplifies the validation process.  We augment these Moore machines with a simple form of memory.  This memory increases the computational power of the machine, but the simple form we use keeps the complexity of validation manageable.
+In previous work~\cite{gledhill2013modelinguas}, we represented each {\em actor}, human or autonomous component, of the WiSAR search team as a Mealy state machines as has been done in other models~\cite{bolton2013litreview}. However the Mealy state machine model does not lend itself well to workload analysis so this paper uses Moore machines\footnote{The outputs or signals from Mealy machines are based both on the inputs into the machine and the state itself,  and Moore machines restrict changes to the input to state changes.} Moore machines confine non-determinism to state changes, which minimizes the possible states and simplifies the validation process.  The memory element of these machines increases the computational power of the machine, but the simple form we use keeps the complexity of validation manageable.
 
 \begin{figure}[h]
 \center
@@ -17,7 +17,7 @@ We now present a formal description of each component of the model
 \subsection{Actors}
 Actors represent the human decision-makers and autonomous elements of the WiSAR team.  An actor is composed of a set of states $S$, an initial state $s_0$, a set of inputs from the environment $\Sigma_{\rm env}$, a set of inputs from other actors on the team $\Sigma_{\rm team}$, a set of outputs $\Lambda_{\rm out}$, a simple form of memory $\Omega_{\rm men}$, and a transition function that determines the next state from the inputs and memory $\delta$. Formally, we denote an actor as:
 \begin{equation}
- 	Actor = (S, s_0, \Sigma_{\rm env}, \Sigma_{\rm team}, \Lambda_{\rm out}, \Lambda_{\rm out} \Omega_{\rm mem},\delta)
+ 	Actor = (S, s_0, \Sigma_{\rm env}, \Sigma_{\rm team}, \Lambda_{\rm out}, \Omega_{\rm mem},\delta)
  \label{eq:actor}
  \end{equation}
  
@@ -47,6 +47,5 @@ When an actor is in a given state, it is useful to explicitly denote the set of 
 
 
 \subsection{Declarative Memory }
-This memory represents internal facts stored by an actor and used in decision
-making.  This memory takes the form of internal variables within an actor {\sc Such as ???}
+Internal facts stored by an actor and used in decision making take the form of internal variables within an actor. A good example of this can be seen in the mission manager actor of our simulation. As the search begins, the mission manager receives a number of data items from the parent search, e.g. search area and target description. These items of information need to be communicated separately to different actors, so they must be stored internally in the mean time. 
 
