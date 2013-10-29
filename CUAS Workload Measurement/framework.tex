@@ -1,9 +1,7 @@
 \section{Directed Team Graph (DiTG)}
+A key element of the actors is that inputs to one actor can be outputs from another actor.  We can therefore create a directed graph from actor to actor, with an edge from actor~A to actor~B existing if the output from actor~A is a possible input to actor~B.  We call this graph a {\em Directed Team Graph} (DiTG); Figure~\ref{fig:ditg} illustrates the DiTG for the WiSAR team used in this paper.   
 
-As described in the previous section, we modeled a WiSAR team as a collection of Mealy machines, called {\em actors}, augmented with a simple form of memory.  A key element of these actors is that inputs to one actor can be outputs from another actor.  We can therefore create a directed graph from actor to actor, with an edge from actor~A to actor~B existing if the output from actor~A is a possible input to actor~B.  We call this graph a {\em Directed Team Graph} (DiTG); Figure~\ref{fig:ditg} illustrates the DiTG for the WiSAR team used in this paper.   
-
-\subsection{Labeled Edges}
-Using the fact that multiple resource theory \cite{wickens2002multiple} indicates that visual and auditory channels can be perceived in parallel, it is useful to label the edges in the graph with the a {\em channel type} as in Figure~\ref{fig:ditg_detail}).  These labels allow the model-checker to identify when multiple signals are given to a single actor over the same channel.  When this occurs, we expect actor workload to be high.
+Using the fact that multiple resource theory indicates that visual and auditory channels can be perceived in parallel \cite{wickens2002multiple}, it is useful to label the edges in the graph with the a {\em channel type} as in Figure~\ref{fig:ditg_detail}).  These labels allow the model-checker to identify when multiple signals are given to a single actor over the same channel.  When this occurs, we expect actor workload to be high.
 
 %We hope to gain
 %insight into decreasing the system workload, and possibly combining roles, by
@@ -17,7 +15,7 @@ Using the fact that multiple resource theory \cite{wickens2002multiple} indicate
 \setlength{\belowcaptionskip}{1mm}
 \setlength{\textfloatsep}{1mm}
 \setlength{\floatsep}{1mm}
-\includegraphics[height=2in]{ditg.png}
+\scalebox{.6}{\includegraphics[height=2in]{ditg.png}}
 \caption{High Level DiTG}
 \label{fig:ditg}
 \end{figure}
@@ -28,7 +26,7 @@ Using the fact that multiple resource theory \cite{wickens2002multiple} indicate
 \setlength{\belowcaptionskip}{1mm}
 \setlength{\textfloatsep}{1mm}
 \setlength{\floatsep}{1mm}
-\includegraphics[height=1.9in]{ditg_detailed.png}
+\scalebox{.6}{\includegraphics[height=1.9in]{ditg_detailed.png}}
 \caption{Detail view of DiTG: V is a Visual channel and A is an Audio channel}
 \label{fig:ditg_detail}
 \end{figure}
@@ -78,22 +76,18 @@ Using the fact that multiple resource theory \cite{wickens2002multiple} indicate
 %declarative memory, $\Sigma$ a set of input channels, and $\Lambda$ a set of
 %output channels.
 
-
-
-\subsection{Overview of Implementation}
 We represent a system as a DiTG, a collection of
 actors connected to one another by a set of channels.  Whenever the state of the
 system changes, an actor will petition from its current state, a list of enabled
 transitions thus defining what decisions can be made.  The actor may then
 activate one of these transitions.  
 
-Because transitions from one state to another take time, as encoded in the {\em Duration} element of the output, it is useful to label transitions as either {\em active} or {\em fired}.  Note that when we presented the model of an actor, we labeled transitions as {\em enabled} and {\em disabled}, which was sufficient when we considered the actor in isolation.  When we consider the workload of an actor as part of the overall team, workload depends on what is going on with other team members, so we have added the active and fired labels to so that we can determine when an enabled transition (meaning a possible choice available to an actor) is chosen by an actor (making it active) and when the actor completes the work required to produce the next state (the transition fires).  
+As transitions from one state to another take time, as encoded in the {\em Duration} element of the output, it is useful to label transitions as either {\em active} or {\em fired}.  Note that when we presented the model of an actor, we labeled transitions as {\em enabled} and {\em disabled}, which was sufficient when we considered the actor in isolation.  When we consider the workload of an actor as part of the overall team, workload depends on what is going on with other team members, so we have added the active and fired labels so that we can determine when an enabled transition (meaning a possible choice available to an actor) is chosen by an actor (making it active) and when the actor completes the work required to produce the next state (the transition fires).  
 
 From an implementation perspective, when a transition becomes active it creates temporary
 output values for declarative memory and channels.  These temporary values are
 then applied to the actual declarative memory and channel values once the transition fires.
 
-\subsection{Actor vs Tasks}
 For our model we never explicitly define a single task.  Instead
 we define actors, states, and transitions.  Each transition defines its own
 perceptual, cognitive, response, and declarative resources \cite{salvucci2008threaded}, allowing the model to represent multiple possible tasks.  In this way, an actor's state
@@ -117,8 +111,8 @@ explicitly defining tasks.
 %\noindent The language is compiled to a Java program suitable to run standalone
 %as a simulation or analyzed by the JPF model checker to create
 %workload profiles.
-=======
-\subsection{Model Creation}
+
+
 To simplify the modeling process and ensure rigorous model creation we
 developed a transition language, similar to a Kripke structure, which allows
 models to be expressed as a list of Actor transitions.  A parser then
