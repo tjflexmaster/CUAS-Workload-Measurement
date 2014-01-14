@@ -1,7 +1,7 @@
 \section{Directed Team Graph (DiTG)}
 A key element of the actors is that inputs to one actor can be outputs from another actor.  We can therefore create a directed graph from actor to actor, with an edge from actor~A to actor~B existing if the output from actor~A is a possible input to actor~B.  We call this graph a {\em Directed Team Graph} (DiTG); Figure~\ref{fig:ditg} illustrates the DiTG for the WiSAR team used in this paper.   
 
-Using the fact that multiple resource theory indicates that visual and auditory channels can be perceived in parallel \cite{wickens2002multiple}, it is useful to label the edges in the graph with the a {\em channel type} as in Figure~\ref{fig:ditg_detail}).  These labels allow the model-checker to identify when multiple signals are given to a single actor over the same channel.  When this occurs, we expect actor workload to be high.
+Using the fact that multiple resource theory indicates that visual and auditory channels can be perceived in parallel \cite{wickens2002multiple}, it is useful to label the edges in the graph with the a {\em channel type} as in Figure~\ref{fig:ditg_detail}.  These labels allow the model-checker to identify when multiple signals are given to a single actor over the same channel.  When this occurs, we expect actor workload to be high.
 
 %We hope to gain
 %insight into decreasing the system workload, and possibly combining roles, by
