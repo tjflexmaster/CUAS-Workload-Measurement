@@ -114,7 +114,7 @@ explicitly defining tasks.
 
 
 To simplify the modeling process and ensure rigorous model creation we
-developed a transition language, similar to a Kripke structure, which allows
+developed a transition language, similar to a Kripkestructure,\footnote{Since our purpose behind building a model was to allow us to examine workload we decided against using standard model checkers such as Spin since they did not provide the same level of flexibility that we obtained via java and JPF.}  which allows
 models to be expressed as a list of Actor transitions.  A parser then
 automatically generates the classes required to run the model simulation.
 The transition language uses the following structure.
