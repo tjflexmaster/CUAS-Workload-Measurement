@@ -21,7 +21,10 @@ making it only
 \label{fig:WorkloadSim1}
 \end{figure}
 
-The second simulation is a scenario where after a short period of flight the battery rapidly fails. In this particular situation, the operator was unable to respond quickly enough to land the UAV before it crashed (see Figure~\ref{fig:WorkloadSim2}). There is an immediate spike in the temporal workload (middle plot), but surprisingly, the workload then decreases back to normal levels in just five time steps. The second spike indicates an unexpected fluctuation in options among one of the actors, which will have to be investigated further to verify if this is an accurate response or if a flaw in the model had slipped past the verification stage of development. Finally, as would be expected, when the UAV crashed there was a small spike in the workload before everything came to a halt. 
+The second simulation is a scenario where after a short period of flight the battery rapidly fails. In this particular situation, the operator was unable to respond quickly enough to land the UAV before it crashed (see Figure~\ref{fig:WorkloadSim2}). There is an immediate spike in the temporal workload (middle plot), but surprisingly, the workload then decreases back to normal levels in just five time steps.
+The second spike revealed an unexpected fluctuation workload leading us to reexamine how information was reported. We found that there was an error in the simulator that has since been repaired.
+%The second spike indicates an unexpected fluctuation in options among one of the actors, which will have to be investigated further to verify if this is an accurate response or if a flaw in the model had slipped past the verification stage of development.
+Finally, as would be expected, when the UAV crashed there was a small spike in the workload before everything came to a halt. 
 
 \begin{figure}[h]
 \center
