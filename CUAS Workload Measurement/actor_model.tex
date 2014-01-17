@@ -21,10 +21,10 @@ Actors represent the human decision-makers and autonomous elements of the WiSAR 
  \label{eq:actor}
  \end{equation}
 
- An actor's output has two components: signals to other actors on a team and a {\em duration} parameter that represents the time required for the actor to complete its transition to the next state.  Thus, $\Lambda_{\rm out}=\Sigma_{\rm team} \times \mathbb{N}^+$. The duration represents the relative difficulty of the
-task(s) associated with the transition.  We justify this by assuming that
-all tasks are performed at a constant rate, thus more difficult tasks take
-longer.
+ An actor's output has two components: signals to other actors on a team and a {\em duration} parameter that represents the time required for the actor to complete its transition to the next state.  Thus, $\Lambda_{\rm out}=\Sigma_{\rm team} \times \mathbb{N}^+$.
+Relative task difficulty is expressed by the duration of the transition.
+%The duration represents the relative difficulty of the task(s) associated with the transition.
+We justify this by assuming that all tasks are performed at a constant rate, thus more difficult tasks take longer.
  
 A transition is a relation on the cross product of inputs with outputs.
 \begin{equation}
@@ -41,4 +41,6 @@ When an actor is in a given state, it is useful to explicitly denote the set of 
  \label{eq:state}
 \end{equation}
 
-Internal facts stored by an actor and used in decision making take the form of internal variables within an actor. A good example of this can be seen in the mission manager actor of our simulation. As the search begins, the mission manager receives a number of data items from the parent search, e.g. search area and target description. These items of information need to be communicated separately to different actors, so they must be stored internally in the mean time. 
+Internal variables within an actor are comprised of facts stored by an actor and used in decision making.
+%Internal facts stored by an actor and used in decision making take the form of internal variables within an actor.
+A good example of this can be seen in the mission manager actor of our simulation. As the search begins, the mission manager receives a number of data items from the parent search, e.g. search area and target description. These items of information need to be communicated separately to different actors, so they must be stored internally in the mean time. 
