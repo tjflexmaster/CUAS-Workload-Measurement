@@ -25,12 +25,10 @@ Actors represent the human decision-makers and autonomous elements of the WiSAR 
 Relative task difficulty is expressed by the duration of the transition.
 %The duration represents the relative difficulty of the task(s) associated with the transition.
 We justify this by assuming that all tasks are performed at a constant rate, thus more difficult tasks take longer.
- 
-A transition is a relation on the cross product of inputs with outputs.
+ A transition is a relation on the cross product of inputs with outputs where the brackets separate inputs from outputs.
 \begin{equation}
  \delta:[S\times\Sigma_{\rm env}\times\Sigma_{\rm team}\times\Omega_{\rm mem}] \times [S\times \Sigma_{\rm team} \times \Omega_{\rm mem}], 
 \end{equation} 
-where the brackets separate inputs from outputs.
  
 Given an actor's current state, set of input signals, and memory, it is possible for multiple transitions to be possible.  This occurs because we assume that multiple environment signals or inter-actor signals may be occurring at the same time, which are all perceived by the actor since we assume perception is a parallel operation.  Thus, it is useful to explicitly note the number of transitions that are possible from a given state.   A transition is considered {\em enabled} when all of its input
 requirements are met and {\em disabled} otherwise. 

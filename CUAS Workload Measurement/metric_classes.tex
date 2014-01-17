@@ -19,8 +19,10 @@ memory load. Decision workload can be broken down into timing, algorithm complex
 Java Pathfinder (JPF) is a tool used to explore all points of nondeterminism.
 %find all possible paths represented in Java source code. 
 It does this by compiling the source code as a JPF binary and
-running it in a virtual machine. The virtual machine can dynamically alter
-sections of the program and concurrently generate and run copies of the program
+running it in a virtual machine.
+Sections of the program are then dynamically altered 
+
+The virtual machine can dynamically alter sections of the program and concurrently generate and run copies of the program
 based off of these changes. This allows us to include alterable values in our
 model and simulate an array of different actors without the need to modify the
 model.
