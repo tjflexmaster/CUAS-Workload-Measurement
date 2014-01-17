@@ -35,7 +35,7 @@ where the brackets separate inputs from outputs.
 Given an actor's current state, set of input signals, and memory, it is possible for multiple transitions to be possible.  This occurs because we assume that multiple environment signals or inter-actor signals may be occurring at the same time, which are all perceived by the actor since we assume perception is a parallel operation.  Thus, it is useful to explicitly note the number of transitions that are possible from a given state.   A transition is considered {\em enabled} when all of its input
 requirements are met and {\em disabled} otherwise. 
 
-When an actor is in a given state, it is useful to explicitly denote the set of enabled and disable transitions.  This information enables an estimate of algorithmic workload, where we assume that algorithmic workload is a function of the number of choices available to the actor.  Thus, we allow the current state to give a workload signal
+When an actor is in a given state, it is useful to explicitly denote the set of enabled and disabled transitions.  This information enables an estimate of algorithmic workload, where we assume that algorithmic workload is a function of the number of choices available to the actor.  Thus, we allow the current state to give a workload signal
 \begin{equation}
 	s_0^{\rm work\  sig} = (T_{enabled}, T_{disabled}) : T_{enabled} \cap T_{disabled} = \emptyset
  \label{eq:state}
