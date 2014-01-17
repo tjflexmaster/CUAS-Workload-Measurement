@@ -13,9 +13,20 @@ We are now in a position to combine the three categories of workload (cognitive,
 \label{fig:WorkloadMetrics}
 \end{figure}
 
-Resource workload is separated into both inter-actor communication and actor memory load. JPF listens to the output of the state transitions and records outputs to $\Omega_{\rm mem}$.  JPF also listens to all channel reads, noting how many communications are on the visual and auditory input channel, identified by the labeled edges of the DiTG, of each actor. 
+Resource workload is separated into both inter-actor communication and actor
+memory load. Decision workload can be broken down into timing, algorithm complexity, and complexity of the solution. Temporal workload includes operations tempo, arrival rate, and response time.
 
-Decision workload can be broken down into timing, complexity of the algorithm, and complexity of the solution. JPF is instrumented to measure timing as the time between when a transition becomes active and when it fires.  JPF is also instrumented to count the number of enabled transitions in each state as it is visited, giving us an $O(n)$ estimate of how the number of choices affects workload.   Finally, JPF is instrumented to count the number of output signals generated ($\Sigma_{\rm team}$), yielding an $O(n)$ estimate for the complexity of computing the required outputs of a state given its inputs.
+Java Pathfinder (JPF) is a tool used to explore all points of nondeterminism.
+%find all possible paths represented in Java source code. 
+It does this by compiling the source code as a JPF binary and
+running it in a virtual machine. The virtual machine can dynamically alter
+sections of the program and concurrently generate and run copies of the program
+based off of these changes. This allows us to include alterable values in our
+model and simulate an array of different actors without the need to modify the
+model.
 
-Temporal workload includes three metrics: operations tempo, arrival rate, and response time.  JPF measures the average op-tempo counting how many transitions occur over a course of the simulation. JPF measures arrival rate by tracking the rate at which inputs become active. Finally, JPF measures response time by recording the time from when an input goes active to the point when it is read by the actor. \\
-
+We have set up a JPF listener to record workload. A JPF listener is a tool that
+follows the Listener Design Pattern and acts in the expected fashion. We have
+focused our listeners on three pieces of the model: the active inputs, enabled
+transitions, and the time taken to perform a transition. We then use these
+pieces of the model to represent resource, decision, and temporal workload respectively.
